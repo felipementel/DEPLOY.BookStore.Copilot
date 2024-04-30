@@ -13,7 +13,7 @@ Pacotes:
 1.1. Clone o repositorio
 
 ```
-git clone https://github.com/felipementel/DEPLOY.BookStore.git
+git clone https://github.com/felipementel/DEPLOY.BookStore.Copilot.git
 ```
 
 1.2. Dentro da pasta da aplicação, no root, execute o seguinte comando para provisionar o Mongodb e o Mongo-Express
