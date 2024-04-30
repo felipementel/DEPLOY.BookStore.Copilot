@@ -57,14 +57,12 @@ namespace DEPLOY.BookStore.Api
 
             app.UseSwaggerExtension();
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             if (app.Environment.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            app.UseHttpsRedirection();
 
             app.MapControllers();
 

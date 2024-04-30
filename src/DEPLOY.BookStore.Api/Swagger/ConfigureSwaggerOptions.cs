@@ -28,19 +28,18 @@ namespace DEPLOY.BookStore.Api.Swagger
 
         private static OpenApiInfo CreateInfoForApiVersion(ApiVersionDescription description)
         {
-            var text = new StringBuilder("Avanade + DIO | Github Copilot");
+            var text = new StringBuilder("Canal D.E.P.L.O.Y. Github Copilot");
 
             var info = new OpenApiInfo()
             {
-                Title = "Avanade + DIO | Github Copilot",
+                Title = "Canal D.E.P.L.O.Y.",
                 Version = description.ApiVersion.ToString(),
-                Description = $"Api criada para treinamento DIO Avanade, v{Assembly.GetExecutingAssembly().GetName().Version}",
+                Description = $"Api criada para treinamento, v{Assembly.GetExecutingAssembly().GetName().Version}",
                 Contact = new OpenApiContact()
                 {
                     Email = "admin@felipementel.dev.br",
                     Name = "Felipe Augusto"
-                },
-
+                }
             };
 
             IsDeprecated(description, text);
