@@ -18,6 +18,11 @@ git clone https://github.com/felipementel/DEPLOY.BookStore.Copilot.git
 
 1.2. Dentro da pasta da aplicação, no root, execute o seguinte comando para provisionar o Mongodb e o Mongo-Express
 
+navegue ate o diretório abaixo
+```
+cd /mnt/c/proj/deploy/deploy.bookstore.copilot/docker/
+```
+e execute o comando abaixo para provisionar a infra local
 ```
 docker-compose -f docker-infra.yml up -d
 ```
