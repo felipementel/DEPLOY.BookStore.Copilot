@@ -3,10 +3,10 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
-    <RepositoryUrl>https://github.com/felipementel/Avanade-DIO-GithubCopilot</RepositoryUrl>
+    <RepositoryUrl>https://github.com/felipementel/DEPLOY.BookStore.Copilot</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <UserSecretsId>Avanade-DIO-GithubCopilot</UserSecretsId>
+    <UserSecretsId>DEPLOY-GithubCopilot</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
