@@ -5,6 +5,6 @@ namespace DEPLOY.BookStore.Domain.Aggregates.BookPublisher.Interfaces.Repositori
 {
     public interface IBookPublisherRepository : IBaseRepository<BookPublisher.Entities.BookPublisher, string>
     {
-        Task<bool> BookExistsAsync(string name);
+        
     }
 }

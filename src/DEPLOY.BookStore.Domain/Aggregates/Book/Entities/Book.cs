@@ -12,14 +12,14 @@ namespace DEPLOY.BookStore.Domain.Aggregates.Book.Entities
             DateTime lauchDate,
             bool active,
             decimal value,
-            BookPublisher.Entities.BookPublisher BookPublisher)
+            BookPublisher.Entities.BookPublisher bookPublisher)
         {
             Title = title;
             Author = author;
             LauchDate = lauchDate;
             Active = active;
             Value = value;
-            BookPublisher = BookPublisher;
+            BookPublisher = bookPublisher;
         }
 
         public string Title { get; init; }

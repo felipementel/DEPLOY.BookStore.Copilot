@@ -9,21 +9,15 @@ using System.Threading.Tasks;
 namespace DEPLOY.BookStore.Domain.Aggregates.BookPublisher.Services
 {
     [ExcludeFromCodeCoverage]
-    public class BookPublisherService : IBookPublisherService
+    public class BookPublisherService(
+        IValidator<Entities.BookPublisher> validations,
+        IBookPublisherRepository BookPublisherRepository) : IBookPublisherService
     {
-        private readonly IValidator<BookPublisher.Entities.BookPublisher> _validations;
+        private readonly IValidator<Entities.BookPublisher> _validations = validations;
 
-        private readonly IBookPublisherRepository _bookPublisherRepository;
+        private readonly IBookPublisherRepository _bookPublisherRepository = BookPublisherRepository;
 
-        public BookPublisherService(
-            IValidator<Entities.BookPublisher> validations,
-            IBookPublisherRepository BookPublisherRepository)
-        {
-            _validations = validations;
-            _bookPublisherRepository = BookPublisherRepository;
-        }
-
-        public async Task<BookPublisher.Entities.BookPublisher> AddBookPublisherAsync(BookPublisher.Entities.BookPublisher BookPublisher)
+        public async Task<Entities.BookPublisher> AddBookPublisherAsync(BookPublisher.Entities.BookPublisher BookPublisher)
         {
             var validated = await _validations.ValidateAsync(BookPublisher,
                 options => options.IncludeRuleSets("new"));

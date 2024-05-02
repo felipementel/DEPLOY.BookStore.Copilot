@@ -9,16 +9,8 @@ namespace DEPLOY.BookStore.Domain.Aggregates.Book.Validators
     [ExcludeFromCodeCoverage]
     public class BookValidator : AbstractValidator<Domain.Aggregates.Book.Entities.Book>
     {
-        private readonly IBookRepository _bookRepository;
-
-        private readonly IBookPublisherRepository _bookPublisherRepository;
-        public BookValidator(
-            IBookRepository bookRepository,
-            IBookPublisherRepository bookPublisherValidator)
+        public BookValidator()
         {
-            _bookRepository = bookRepository;
-            _bookPublisherRepository = _bookPublisherRepository;
-
             RuleSet("new", () =>
             {
                 RuleFor(e => e.Title)
@@ -28,13 +20,6 @@ namespace DEPLOY.BookStore.Domain.Aggregates.Book.Validators
                 RuleFor(e => e.Title)
                 .MaximumLength(100)
                 .WithMessage("{PropertyName} must have a maximum of 100 characters");
-
-                RuleFor(e => e.Title)
-                .MustAsync(async (title, cancellation) =>
-                {
-                    var book = await _bookRepository.GetByTitleAsync(title);
-                    return !book;
-                });
 
                 RuleFor(e => e.Title)
                 .MinimumLength(3)
@@ -65,7 +50,7 @@ namespace DEPLOY.BookStore.Domain.Aggregates.Book.Validators
                 .WithMessage("{PropertyName} must be greater than 0");
 
                 RuleFor(e => e.BookPublisher)
-                .SetValidator(new BookPublisherValidator(_bookPublisherRepository));
+                .SetValidator(new BookPublisherValidator());
             });
 
             RuleSet("update", () =>
@@ -75,7 +60,7 @@ namespace DEPLOY.BookStore.Domain.Aggregates.Book.Validators
                 .WithMessage("{PropertyName} can not be empty");
 
                 RuleFor(e => e.BookPublisher)
-                .SetValidator(new BookPublisherValidator(_bookPublisherRepository));
+                .SetValidator(new BookPublisherValidator());
             });
         }
     }

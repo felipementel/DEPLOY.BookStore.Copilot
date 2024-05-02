@@ -17,9 +17,8 @@ namespace DEPLOY.BookStore.Application.AutoMapperConfigs.Profiles.Book
                         ctor.DataLancamento,
                         ctor.Ativo,
                         ctor.Valor,
-                        BookPublisher: res.Mapper.Map<Domain.Aggregates.BookPublisher.Entities.BookPublisher>(ctor.Editora));
+                        bookPublisher: res.Mapper.Map<Domain.Aggregates.BookPublisher.Entities.BookPublisher>(ctor.Editora));
                     });
-
 
             CreateMap<Domain.Aggregates.Book.Entities.Book, Dtos.Book.BookDto>()
                 .ForMember(dest => dest.Identificador, opt => opt.MapFrom(src => src.Id))

@@ -12,11 +12,10 @@ using System.Text;
 namespace DEPLOY.BookStore.Api.Swagger
 {
     [ExcludeFromCodeCoverage]
-    public class ConfigureSwaggerOptions : IConfigureOptions<SwaggerGenOptions>
+    public class ConfigureSwaggerOptions(IApiVersionDescriptionProvider provider) 
+        : IConfigureOptions<SwaggerGenOptions>
     {
-        private readonly IApiVersionDescriptionProvider provider;
-
-        public ConfigureSwaggerOptions(IApiVersionDescriptionProvider provider) => this.provider = provider;
+        private readonly IApiVersionDescriptionProvider provider = provider;
 
         public void Configure(SwaggerGenOptions options)
         {

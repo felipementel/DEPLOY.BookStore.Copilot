@@ -7,22 +7,13 @@ namespace DEPLOY.BookStore.Domain.Aggregates.BookPublisher.Validators
     [ExcludeFromCodeCoverage]
     public class BookPublisherValidator : AbstractValidator<Entities.BookPublisher>
     {
-        private readonly IBookPublisherRepository _bookRepository;
-
-        public BookPublisherValidator(IBookPublisherRepository bookPublisherRepository)
+        public BookPublisherValidator()
         {
-            _bookRepository = bookPublisherRepository;
-
             RuleSet("new", () =>
             {
                 RuleFor(e => e.Name)
                 .NotEmpty()
-                .WithMessage("{PropertyName} can not be empty");
-
-                RuleFor(e => e.Name)
-                .MustAsync(async (name, cancellation) =>
-                    !await _bookRepository.BookExistsAsync(name))
-                .WithMessage("A book with the same name already exists");
+                .WithMessage("{PropertyName} can not be empty");                
 
                 RuleFor(e => e.Name)
                 .MaximumLength(100)
